@@ -1,25 +1,21 @@
 package Web;
 
 import org.openqa.selenium.By;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-enum Locator {
-    id,
-    name,
-    cssSelector,
-    xpath,
-    linkText,
-    className,
-    partialLinkText,
-    tagName,
-    notDefined
-}
+public abstract class Element {
+    protected By locate(LocatorType type, String locator) {
+        Method method;
+        Object result = null;
 
-public abstract class Element extends By {
+        try {
+            Class<?> c = Class.forName(org.openqa.selenium.By.class.getName());
+            method = c.getMethod(type.toString(), String.class);
+            result = method.invoke(c, locator);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-    public By find(Locator type, String locator) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-        Method method = this.getClass().getMethod(type.toString());
-        return (By)method.invoke(this, locator);
+        return (By) result;
     }
 }

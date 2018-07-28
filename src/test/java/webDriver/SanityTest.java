@@ -1,6 +1,7 @@
 package webDriver;
 
 import org.junit.Test;
+import webTesting.Inspection;
 
 public class SanityTest extends Inspection {
     @Test

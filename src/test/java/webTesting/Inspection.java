@@ -1,11 +1,11 @@
-package webDriver;
+package webTesting;
 
 import Web.ChromeBrowser;
 import org.junit.After;
 import org.junit.Before;
 
-abstract class Inspection {
-    ChromeBrowser chromeBrowser;
+public abstract class Inspection {
+    protected ChromeBrowser chromeBrowser;
 
     @Before
     public void before() {
