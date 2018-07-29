@@ -46,7 +46,7 @@ public class Step {
         html.append(String.format("<td class=\"cell100 column3\">%s</td>", locatorType));
         html.append(String.format("<td class=\"cell100 column4\">%s</td>", locator));
         html.append(String.format("<td class=\"cell100 column5\">%s</td>", value));
-        html.append(!this.passed ? "<td class=\"cell100 column6\"><font></font></td>" : "<td class=\"cell100 column6\"><font color='red'>Failed</font></td>");
+        html.append(this.passed ? "<td class=\"cell100 column6\"><font color='green'>Passed</font></td>" : "<td class=\"cell100 column6\"><font color='red'>Failed</font></td>");
         html.append("</tr>");
 
         return html.toString();
