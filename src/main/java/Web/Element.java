@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import java.lang.reflect.Method;
 
 public abstract class Element {
-    protected By locate(LocatorType type, String locator) {
+    public static By locate(LocatorType type, String locator) {
         Method method;
         Object result = null;
 

@@ -6,7 +6,7 @@
       "runType": "faster"
     }
   ],
-  "openUrl": "http://ruralsourcing.com",
+  "url": "http://ruralsourcing.com",
   "steps": [
     {
       "description": "Open 'About Us' link from the menu bar.",
@@ -34,5 +34,5 @@
       "value": "723 Silver Ave SW\nAlbuquerque, NM 87102\n505.218.8500"
     }
   ],
-  "close": "Close the browser."
+  "closeBrowser": "Close the browser."
 }

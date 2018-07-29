@@ -1,21 +1,22 @@
 package rsi;
 
+import schema.Program;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import webTesting.Inspection;
+import java.io.IOException;
 
-@RunWith(Parameterized.class)
-public class ABQDevelopmentCenter extends RuralSourcingWebSiteTest {
+public class ABQDevelopmentCenter extends Inspection {
 
     @Test
-    public void correctAlbuquerqueNewMexicoAddress() {
-        chromeBrowser.openDefaultChrome();
-        chromeBrowser.open(url);
-        navigation.clickAboutUsLink();
-        aboutPage.clickOurDevelopmentCentersButton();
-        developmentCenters.clickNewMexicoButton();
-        String address = developmentCenters.getAddressParagraph();
-        Assert.assertEquals("Invalid address.", abqAddress, address);
+    public void correctAlbuquerqueNewMexicoAddressUsingJsonSchema() throws IOException {
+        int result = Program.main(new String[] { "C:\\Users\\CarlosJ\\Documents\\RSI\\Automation\\WebDriver\\RSI.ABQ.QE.Automation\\src\\main\\java\\inc\\rsi\\qe\\rsi.site.address.test.json" });
+        Assert.assertEquals(result, 0);
+    }
+
+    @Test
+    public void findRSILinkInGoogleSearch() throws IOException {
+        int result = Program.main(new String[] { "C:\\Users\\CarlosJ\\Documents\\RSI\\Automation\\WebDriver\\RSI.ABQ.QE.Automation\\src\\main\\java\\com\\google\\qe\\schemas\\google.site.rsi.search.test.json" });
+        Assert.assertEquals(result, 0);
     }
 }

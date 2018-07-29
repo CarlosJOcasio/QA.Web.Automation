@@ -15,7 +15,9 @@ abstract class Selenium {
     }
 
     void closeDriver() {
-        getWebDriver().close();
+        try {
+            getWebDriver().close();
+        } catch (Exception ignored) { }
     }
 
     void openDriver(String url) {
@@ -27,7 +29,8 @@ abstract class Selenium {
         return driversPath = driversPath == null ? ClassLoader.getSystemResource("./bin/drivers").getFile() : driversPath;
     }
 
+    private String property;
     String getProperty(String key) {
-        return Property.getProperty("./configuration/selenium.properties", key);
+        return property = property != null ? property : Property.getProperty("./configuration/selenium.properties", key);
     }
 }

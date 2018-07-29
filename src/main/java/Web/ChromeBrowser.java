@@ -38,4 +38,9 @@ public class ChromeBrowser extends Selenium {
     private ChromeOptions chromeOptions() {
         return chromeOptions = chromeOptions != null ? chromeOptions : new ChromeOptions();
     }
+
+    @Override
+    public String toString() {
+        return "chrome";
+    }
 }

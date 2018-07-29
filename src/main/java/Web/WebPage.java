@@ -4,12 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public abstract class WebPage extends Selenium {
+public class WebPage extends Selenium {
     private final Wait wait = new Wait();
-
-    protected String getTitle() {
-        return getWebDriver().getTitle();
-    }
 
     protected void click(By element) {
         WebElement webElement = wait.canClick(element);

@@ -3,7 +3,7 @@ package Web;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public abstract class WepPageComponent extends Selenium {
+public class WepPageComponent extends Selenium {
     private final Wait wait = new Wait();
 
     protected void clickNavigatorLink(By menu, By link) {
