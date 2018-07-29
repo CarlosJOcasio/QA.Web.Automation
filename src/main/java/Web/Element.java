@@ -6,12 +6,8 @@ import java.lang.reflect.Method;
 
 public abstract class Element {
     public static By locate(LocatorType type, String locator) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, ClassNotFoundException {
-        Method method;
-        Object result = null;
-        Class<?> c = Class.forName(org.openqa.selenium.By.class.getName());
-        method = c.getMethod(type.toString(), String.class);
-        result = method.invoke(c, locator);
-
-        return (By) result;
+        Class<?> clazz = Class.forName(org.openqa.selenium.By.class.getName());
+        Method method = clazz.getMethod(type.toString(), String.class);
+        return (By) method.invoke(clazz, locator);
     }
 }

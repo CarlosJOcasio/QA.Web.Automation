@@ -6,12 +6,16 @@ import Web.Element;
 import Web.LocatorType;
 import org.openqa.selenium.By;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
 class JsonRunner {
-    private String path;
+    private final String path;
+    private final String webPageClassName = Web.WebPage.class.getName();
+    private final String validationClassName = Web.Validation.class.getName();
+    private final String webPageComponentClassName = Web.WepPageComponent.class.getName();
 
     private JsonParser test;
     private JsonParser test() throws IOException {
@@ -35,9 +39,6 @@ class JsonRunner {
 
     void runSteps() throws IOException {
         Invoke invoke = new Invoke();
-        String webPageClassName = Web.WebPage.class.getName();
-        String validationClassName = Web.Validation.class.getName();
-        String webPageComponentClassName = Web.WepPageComponent.class.getName();
 
         for(Browser browser : test().getBrowser()) {
             if(browser.name.equalsIgnoreCase(chrome().toString())) {
@@ -52,8 +53,9 @@ class JsonRunner {
                     Exception exception = null;
 
                     try {
-                        By element = Element.locate(LocatorType.valueOf(step.locatorType), step.locator);
+                        By element;
                         if (isMethodFound(webPageClassName, step.name)) {
+                            element = Element.locate(LocatorType.valueOf(step.locatorType), step.locator);
                             if (step.value.isEmpty()) {
                                 invoke.method(webPageClassName, step.name, element);
                             } else {
@@ -64,6 +66,7 @@ class JsonRunner {
 
                         if (isMethodFound(validationClassName, step.name)) {
                             if (!step.locatorType.isEmpty() && !step.locator.isEmpty() && !step.value.isEmpty()) {
+                                element = Element.locate(LocatorType.valueOf(step.locatorType), step.locator);
                                 invoke.method(validationClassName, step.name, element, step.value);
                             } else {
                                 invoke.method(validationClassName, step.name, step.value);
@@ -74,13 +77,15 @@ class JsonRunner {
                         if (isMethodFound(webPageComponentClassName, step.name)) {
                             String[] locatorTypes = step.locatorType.split(";");
                             String[] locators = step.locator.split(";");
-                            invoke.method(webPageComponentClassName, step.name, Element.locate(LocatorType.valueOf(locatorTypes[0]), locators[0]), Element.locate(LocatorType.valueOf(locatorTypes[1]), locators[1]));
+                            invoke.method(webPageComponentClassName, step.name,
+                                    Element.locate(LocatorType.valueOf(locatorTypes[0]), locators[0]),
+                                    Element.locate(LocatorType.valueOf(locatorTypes[1]), locators[1]));
                         }
                     } catch (Exception | AssertionError exc) {
-                        exception = new Exception(exc);
+                        exception = new Exception(exc.getCause());
                     } finally {
                         HTLMReport.write(new Report.Step(
-                                exception == null ? step.description : String.format("%s\nException: %s\nStack: %s", step.description, exception.getMessage(), exception.toString()),
+                                exception == null ? step.description : String.format("%s\nException: %s", step.description, exception.toString()),
                                 step.name, step.locatorType, step.locator, step.value, exception == null));
                     }
                 }
@@ -90,7 +95,7 @@ class JsonRunner {
         }
     }
 
-    boolean isMethodFound(String className, String methodName) throws ClassNotFoundException {
+    static boolean isMethodFound(String className, String methodName) throws ClassNotFoundException {
         Class<?> c = Class.forName(className);
         List<Method> methods = Arrays.asList(c.getDeclaredMethods());
         return methods.stream().anyMatch(string -> string.getName().contains(methodName));
