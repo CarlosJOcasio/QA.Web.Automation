@@ -1,10 +1,7 @@
 package Web;
 
-import org.openqa.selenium.By;
+import Utility.Property;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import java.io.IOException;
-import java.util.Properties;
 
 abstract class Selenium {
     private static WebDriver driver;
@@ -15,10 +12,6 @@ abstract class Selenium {
 
     static WebDriver getWebDriver() {
         return driver;
-    }
-
-    WebElement findElement(By by) {
-        return Selenium.getWebDriver().findElement(by);
     }
 
     void closeDriver() {
@@ -35,13 +28,6 @@ abstract class Selenium {
     }
 
     String getProperty(String key) {
-        Properties property = new Properties();
-        try {
-            property.load(ClassLoader.getSystemResourceAsStream("./configuration/selenium.properties"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return property.getProperty(key);
+        return Property.getProperty("./configuration/selenium.properties", key);
     }
 }

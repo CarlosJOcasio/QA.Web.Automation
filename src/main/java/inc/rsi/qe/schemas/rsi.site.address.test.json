@@ -1,0 +1,38 @@
+{
+  "testCase": "Test RSI ABQ Address.",
+  "browsers": [
+    {
+      "name": "chrome",
+      "runType": "faster"
+    }
+  ],
+  "openUrl": "http://ruralsourcing.com",
+  "steps": [
+    {
+      "description": "Open 'About Us' link from the menu bar.",
+      "name": "clickNavigatorLink",
+      "locatorType": "cssSelector;cssSelector",
+      "locator": "#mobile-navigation-trigger > span;#menu-item-8094 > a"
+    },
+    {
+      "description": "Click 'OUR DEVELOPMENT CENTERS' button in 'About' page.",
+      "name": "click",
+      "locatorType": "cssSelector",
+      "locator": "#starts-and-stays > div.row.align-middle > div.columns.small-12.medium-7.large-4.large-offset-2.small-order-2.medium-order-1 > div > div > a"
+    },
+    {
+      "description": "Click 'New Mexico' button.",
+      "name": "click",
+      "locatorType": "cssSelector",
+      "locator": "#rk1pmx-magellan > li:nth-child(4) > a"
+    },
+    {
+      "description": "Get the Albuquerque, New Mexico's address and compare.",
+      "name": "compareEqual",
+      "locatorType": "cssSelector",
+      "locator": "#rk1pmx-magellan > li:nth-child(4) > a",
+      "value": "723 Silver Ave SW\nAlbuquerque, NM 87102\n505.218.8500"
+    }
+  ],
+  "close": "Close the browser."
+}

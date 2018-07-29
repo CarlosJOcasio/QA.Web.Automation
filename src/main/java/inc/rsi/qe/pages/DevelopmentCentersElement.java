@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 class DevelopmentCentersElement extends Element {
     By getNewMexicoButton() {
-        return locate(LocatorType.cssSelector, "#c3dc7d-magellan > li:nth-child(4) > a");
+        return locate(LocatorType.xpath, "//a[text()='New Mexico']");
     }
 
     By getNewMexicoAddress() {

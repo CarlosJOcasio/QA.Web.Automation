@@ -10,6 +10,6 @@ class NavigationElement extends Element {
     }
 
     By getAboutUsLink() {
-        return locate(LocatorType.linkText, "About Us");
+        return locate(LocatorType.cssSelector, "#menu-item-8094 > a");
     }
 }

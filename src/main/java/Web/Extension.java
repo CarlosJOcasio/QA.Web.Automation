@@ -1,4 +1,4 @@
 package Web;
 
-public abstract class Extension extends WebPage {
+abstract class Extension extends WebPage {
 }

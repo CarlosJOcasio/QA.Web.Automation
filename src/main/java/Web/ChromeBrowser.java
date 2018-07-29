@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeBrowser extends Selenium {
 
+    @SuppressWarnings("SpellCheckingInspection")
     public void openDefaultChrome() {
         if(getWebDriver() == null) {
             System.setProperty("webdriver.chrome.driver", String.format("%s/chromedriver.exe", driversPath()));
