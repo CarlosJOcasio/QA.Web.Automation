@@ -5,6 +5,7 @@ import org.apache.maven.shared.utils.io.FileUtils;
 import report.Step;
 import utility.Property;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.regex.*;
 
 public class Program {
@@ -15,19 +16,8 @@ public class Program {
 
     public static int main( String [] arguments ) throws IOException {
         try {
-            argumentParser(arguments);
-        } catch (Exception e) {
-            System.out.print("Unable to parse commands.");
-            e.printStackTrace();
-            help();
-            return 1;
-        }
+            Arrays.stream(arguments).forEach(s -> { setArgument(s); });
 
-        if(path.isEmpty() || !FileUtils.fileExists(path) || !path.endsWith(".test.json")) {
-            return 1;
-        }
-
-        try {
             JsonRunner runner = new JsonRunner(path, browsers, options);
             runner.start();
             runner.runBrowser();
@@ -52,28 +42,23 @@ public class Program {
     private static String extractFilePath(String argument) {
         Pattern pattern = Pattern.compile(cmdParserRegEx);
         Matcher matcher = pattern.matcher(argument);
-        if(matcher.find()) {
-            return matcher.group("value");
+        return matcher.find() ? matcher.group("value") : null;
+    }
+    private static void setArgument(String argument) {
+        if(argument.contains("-file:")) {
+            path = extractFilePath(argument);
         }
 
-        return null;
-    }
+        if(argument.contains("-browsers:")) {
+            browsers = extractFilePath(argument);
+        }
 
-    private static void argumentParser(String [] arguments) {
-        if(arguments != null && arguments.length > 0) {
-            for (String argument : arguments) {
-                if(argument.contains("-file:")) {
-                    path = extractFilePath(argument);
-                }
+        if(argument.contains("-browserOptions:")) {
+            options = extractFilePath(argument);
+        }
 
-                if(argument.contains("-browsers:")) {
-                    browsers = extractFilePath(argument);
-                }
-
-                if(argument.contains("-browserOptions:")) {
-                    options = extractFilePath(argument);
-                }
-            }
+        if(path == null || path.isEmpty() || !FileUtils.fileExists(path) || !path.endsWith(".test.json")) {
+            HTLMReport.write(new Step("Invalid Json Test File provided.", "File path command line argument.", path));
         }
     }
 }

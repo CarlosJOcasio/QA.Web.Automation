@@ -13,16 +13,15 @@ class JsonRunner {
     private Date start = null;
     private final Option option = new Option();
     private final Browser browser = new Browser();
-    private String browsers = "";
-    private String options = "";
     private final String path;
     private final String webPageClassName = web.WebPage.class.getName();
     private final String chromeClassName = web.ChromeBrowser.class.getName();
     private final String validationClassName = web.Validation.class.getName();
     private final String webPageComponentClassName = web.WepPageComponent.class.getName();
-    private final Invoke invoke = new Invoke();
-    private JsonParser test;
+    private String browsers = "";
+    private String options = "";
 
+    private JsonParser test;
     private JsonParser test() {
         return test = test != null ? test : init();
     }
@@ -52,6 +51,7 @@ class JsonRunner {
         return parser.getTest();
     }
 
+    //todo simplify
     private void setBrowser(Browser browser) {
         List<Option> options = option.getOptions();
 

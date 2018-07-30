@@ -18,10 +18,6 @@ class JsonParser {
         return test.getTestCase();
     }
 
-    String getUrl() {
-        return test.getUrl();
-    }
-
     List<TestStep> getSteps() {
         return test.getSteps();
     }
