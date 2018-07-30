@@ -6,8 +6,12 @@
       "runType": "faster"
     }
   ],
-  "url": "http://google.com",
   "steps": [
+    {
+      "description": "Open Google website.",
+      "name": "open",
+      "value": "http://google.com"
+    },
     {
       "description": "Enter RSIs company name in google's main text box.",
       "name": "enterText",
@@ -32,6 +36,5 @@
       "name": "validateTitle",
       "value": "Rural Sourcing - America’s leading provider of domestic outsourced IT"
     }
-  ],
-  "closeBrowser": "Close the browser."
+  ]
 }

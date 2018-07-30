@@ -1,6 +1,6 @@
 package webTesting;
 
-import Web.ChromeBrowser;
+import web.ChromeBrowser;
 import org.junit.After;
 import org.junit.Before;
 

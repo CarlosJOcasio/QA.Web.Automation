@@ -638,7 +638,7 @@ function getArea(_ref) {
 }
 
 /**
- * Utility used to transform the `auto` placement to the placement with more
+ * utility used to transform the `auto` placement to the placement with more
  * available space.
  * @method
  * @memberof Popper.Utils
@@ -1200,7 +1200,7 @@ function computeStyle(data, options) {
   // automatically use the supported prefixed version if needed
   var prefixedProperty = getSupportedPropertyName('transform');
 
-  // now, let's make a step back and look at this code closely (wtf?)
+  // now, let's make a testStep back and look at this code closely (wtf?)
   // If the content of the popper grows once it's been positioned, it
   // may happen that the popper gets misplaced because of the new content
   // overflowing its reference element
@@ -1471,8 +1471,8 @@ function flip(data, options) {
       flipOrder = options.behavior;
   }
 
-  flipOrder.forEach(function (step, index) {
-    if (placement !== step || flipOrder.length === index + 1) {
+  flipOrder.forEach(function (testStep, index) {
+    if (placement !== testStep || flipOrder.length === index + 1) {
       return data;
     }
 
@@ -1735,7 +1735,7 @@ function preventOverflow(data, options) {
   var boundariesElement = options.boundariesElement || getOffsetParent(data.instance.popper);
 
   // If offsetParent is the reference element, we really want to
-  // go one step up and use the next offsetParent as reference to
+  // go one testStep up and use the next offsetParent as reference to
   // avoid to make this modifier completely useless and look like broken
   if (data.instance.reference === boundariesElement) {
     boundariesElement = getOffsetParent(boundariesElement);

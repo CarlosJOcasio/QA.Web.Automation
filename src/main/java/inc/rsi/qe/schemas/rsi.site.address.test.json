@@ -6,8 +6,12 @@
       "runType": "faster"
     }
   ],
-  "url": "http://ruralsourcing.com",
   "steps": [
+    {
+      "description": "Open RSI website.",
+      "name": "openUrl",
+      "value": "http://ruralsourcing.com"
+    },
     {
       "description": "Open 'About Us' link from the menu bar.",
       "name": "clickNavigatorLink",

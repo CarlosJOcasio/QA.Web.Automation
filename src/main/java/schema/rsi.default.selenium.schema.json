@@ -3,11 +3,15 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "description": "Selenium data driven test.",
   "type": "object",
-  "required": [ "browsers", "url", "steps", "closeBrowser" ],
+  "required": [
+    "testCase",
+    "browsers",
+    "steps"
+  ],
   "properties": {
     "testCase": {
-      "description":"Test case description.",
-      "type":"string"
+      "description": "Test case description.",
+      "type": "string"
     },
     "browsers": {
       "type": "array",
@@ -15,25 +19,11 @@
         "$ref": "#/definitions/browser"
       }
     },
-    "url": {
-      "description":"Url to open on the given browser.",
-      "type": "string"
-    },
     "steps": {
       "type": "array",
       "items": {
         "$ref": "#/definitions/step"
       }
-    },
-    "snippet": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/snippet"
-      }
-    },
-    "closeBrowser": {
-      "description": "Close browser",
-      "type": "string"
     }
   },
   "definitions": {
@@ -45,11 +35,11 @@
       ],
       "properties": {
         "name": {
-          "type":"string",
+          "type": "string",
           "description": "Step name."
         },
         "description": {
-          "type":"string",
+          "type": "string",
           "description": "Short description of what the tester is doing."
         },
         "locatorType": {
@@ -80,16 +70,6 @@
         "runType": {
           "type": "string",
           "description": "Browser type."
-        }
-      }
-    },
-    "snippet": {
-      "type": "string",
-      "required": ["filePath"],
-      "properties": {
-        "filePath": {
-          "type": "string",
-          "description": "Path to snippet to load, file extension *.snippet.json."
         }
       }
     }

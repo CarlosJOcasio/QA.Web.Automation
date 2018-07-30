@@ -1,24 +1,29 @@
 package schema;
 
-import Report.HTLMReport;
-import Web.ChromeBrowser;
-import Web.Element;
-import Web.LocatorType;
-import org.openqa.selenium.By;
+import report.HTLMReport;
+import web.ChromeBrowser;
+import web.TestStep;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 class JsonRunner {
+    private Date start = null;
+    private final Option option = new Option();
+    private final Browser browser = new Browser();
+    private String browsers = "";
+    private String options = "";
     private final String path;
-    private final String webPageClassName = Web.WebPage.class.getName();
-    private final String validationClassName = Web.Validation.class.getName();
-    private final String webPageComponentClassName = Web.WepPageComponent.class.getName();
-
+    private final String webPageClassName = web.WebPage.class.getName();
+    private final String chromeClassName = web.ChromeBrowser.class.getName();
+    private final String validationClassName = web.Validation.class.getName();
+    private final String webPageComponentClassName = web.WepPageComponent.class.getName();
+    private final Invoke invoke = new Invoke();
     private JsonParser test;
-    private JsonParser test() throws IOException {
+
+    private JsonParser test() {
         return test = test != null ? test : init();
     }
 
@@ -26,78 +31,116 @@ class JsonRunner {
         return new ChromeBrowser();
     }
 
-    JsonRunner(String path) {
+    JsonRunner(String path, String browsers, String options) {
         this.path = path;
+        this.browsers = browsers;
+        this.options = options;
     }
 
-    private JsonParser init() throws IOException {
+    private JsonParser init() {
         JsonParser parser = new JsonParser();
-        parser.readFile(path);
-        HTLMReport.write(new Report.Step(parser.getTestCase(), "Initialize Test Case"));
+        try {
+            parser.readFile(path);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        start = new Date(System.currentTimeMillis());
+        HTLMReport.write(new report.Step(parser.getTestCase(), "Initialize Test Case", start.toString()));
+        browser.setBrowser(browsers);
+        option.setOption(options);
         return parser.getTest();
     }
 
-    void runSteps() throws IOException {
-        Invoke invoke = new Invoke();
+    private void setBrowser(Browser browser) {
+        List<Option> options = option.getOptions();
 
-        for(Browser browser : test().getBrowser()) {
-            if(browser.name.equalsIgnoreCase(chrome().toString())) {
-                chrome().openFasterLoadChrome();
-                String url = test().getUrl();
-                chrome().open(url);
-                HTLMReport.write(new Report.Step("Open Chrome Browser", String.format("Opening url '%s'", url), true));
-            }
-
-            try {
-                for (Step step : test().getSteps()) {
-                    Exception exception = null;
-
-                    try {
-                        By element;
-                        if (isMethodFound(webPageClassName, step.name)) {
-                            element = Element.locate(LocatorType.valueOf(step.locatorType), step.locator);
-                            if (step.value.isEmpty()) {
-                                invoke.method(webPageClassName, step.name, element);
-                            } else {
-                                invoke.method(webPageClassName, step.name, element, step.value);
-                            }
-                            continue;
-                        }
-
-                        if (isMethodFound(validationClassName, step.name)) {
-                            if (!step.locatorType.isEmpty() && !step.locator.isEmpty() && !step.value.isEmpty()) {
-                                element = Element.locate(LocatorType.valueOf(step.locatorType), step.locator);
-                                invoke.method(validationClassName, step.name, element, step.value);
-                            } else {
-                                invoke.method(validationClassName, step.name, step.value);
-                            }
-                            continue;
-                        }
-
-                        if (isMethodFound(webPageComponentClassName, step.name)) {
-                            String[] locatorTypes = step.locatorType.split(";");
-                            String[] locators = step.locator.split(";");
-                            invoke.method(webPageComponentClassName, step.name,
-                                    Element.locate(LocatorType.valueOf(locatorTypes[0]), locators[0]),
-                                    Element.locate(LocatorType.valueOf(locatorTypes[1]), locators[1]));
-                        }
-                    } catch (Exception | AssertionError exc) {
-                        exception = new Exception(exc.getCause());
-                    } finally {
-                        HTLMReport.write(new Report.Step(
-                                exception == null ? step.description : String.format("%s\nException: %s", step.description, exception.toString()),
-                                step.name, step.locatorType, step.locator, step.value, exception == null));
-                    }
-                }
-            } finally {
-                chrome().close();
+        if (browser.toString().equalsIgnoreCase(chrome().toString())) {
+            if (options.stream().anyMatch(o -> o.toString().contains("fastLoad"))) {
+                chrome().fastLoad();
+            } else if (options.stream().anyMatch(o -> o.toString().contains("headless"))) {
+                chrome().headleass();
+            } else {
+                chrome().normal();
             }
         }
     }
 
-    static boolean isMethodFound(String className, String methodName) throws ClassNotFoundException {
-        Class<?> c = Class.forName(className);
-        List<Method> methods = Arrays.asList(c.getDeclaredMethods());
-        return methods.stream().anyMatch(string -> string.getName().contains(methodName));
+    private void wrapUp(Browser browser) {
+        if (browser.toString().equalsIgnoreCase(chrome().toString())) {
+            chrome().close();
+        }
+    }
+
+    void start() {
+        test().getTestCase();
+    }
+
+    void end() {
+        Date end = new Date(System.currentTimeMillis());
+        HTLMReport.write(new report.Step("END TIME", "Test Suite Ended", end.toString()));
+
+        long diff = TimeUnit.DAYS.convert(Math.abs(end.getTime() - start.getTime()), TimeUnit.MILLISECONDS);
+        HTLMReport.write(new report.Step("TOTAL TIME", "Test Suite Total", String.valueOf(diff)));
+    }
+
+    private void runStep(TestStep step) {
+        Exception exception = null;
+
+        try {
+
+            if (invokeMethod(webPageClassName, step.name, step) ||
+                    invokeMethod(chromeClassName, step.name, step) ||
+                    invokeMethod(validationClassName, step.name, step) ||
+                    invokeMethod(webPageComponentClassName, step.name, step)) {
+
+                Date end = new Date(System.currentTimeMillis());
+                HTLMReport.write(new report.Step("END TIME", "Test Case Ended", end.toString()));
+            }
+        } catch (Exception | AssertionError exc) {
+            exception = new Exception(exc.getCause());
+        } finally {
+            HTLMReport.write(new report.Step(
+                    exception == null ? step.description : String.format("%s\nException: %s", step.description, exception.toString()),
+                    step.name, step.locatorType, step.locator, step.value, exception == null));
+        }
+
+    }
+
+    private void runSteps() {
+        try {
+            test().getSteps().stream().forEach(step -> {
+                runStep(step);
+            });
+        } finally {
+            wrapUp(browser);
+        }
+    }
+
+    void runBrowser() {
+        browser.getBrowsers().stream().forEach(b -> {
+            setBrowser(b);
+            runSteps();
+        });
+    }
+
+    static boolean invokeMethod(String className, String methodName, TestStep step) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
+        Class<?> clazz = Class.forName(className);
+        List<Method> methods = Arrays.asList(clazz.getDeclaredMethods());
+        Optional<Method> optionalMethod = methods.stream().filter(m -> m.getName().equalsIgnoreCase(methodName)).findFirst();
+        Method method = optionalMethod.isPresent() ? optionalMethod.get() : null;
+
+        boolean result = false;
+        if(method != null) {
+            method.setAccessible(true);
+            if(method.getParameterCount() > 0) {
+                method.invoke(clazz.newInstance(), step);
+            } else {
+                method.invoke(clazz.newInstance());
+            }
+            result = true;
+        }
+
+        return result;
     }
 }

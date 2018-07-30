@@ -6,6 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 class Invoke {
+
     void method(String className, String methodName, By arg1, By arg2) throws IllegalAccessException, InstantiationException, NoSuchMethodException, ClassNotFoundException, InvocationTargetException {
         Class<?> clazz = Class.forName(className);
         Method method = clazz.getDeclaredMethod(methodName, By.class, By.class);

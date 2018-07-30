@@ -1,24 +1,25 @@
 package webDriver;
 
 import org.junit.Test;
+import web.TestStep;
 import webTesting.Inspection;
 
 public class SanityTest extends Inspection {
     @Test
     public void headlessChromeInspection() {
-        chromeBrowser.openHeadlessChrome();
-        chromeBrowser.open("http://www.google.com");
+        chromeBrowser.headleass();
+        chromeBrowser.open(new TestStep("http://www.google.com"));
     }
 
     @Test
     public void fastLoadChromeInspection() {
-        chromeBrowser.openFasterLoadChrome();
-        chromeBrowser.open("http://www.google.com");
+        chromeBrowser.fastLoad();
+        chromeBrowser.open(new TestStep("http://www.google.com"));
     }
 
     @Test
     public void defaultChromeInspection() {
-        chromeBrowser.openDefaultChrome();
-        chromeBrowser.open("http://www.google.com");
+        chromeBrowser.normal();
+        chromeBrowser.open(new TestStep("http://www.google.com"));
     }
 }

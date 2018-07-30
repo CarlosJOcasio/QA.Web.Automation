@@ -1,29 +1,22 @@
 package schema;
 
+import web.TestStep;
+import java.util.List;
+
 class Test {
     private String testCase;
-    private Browser[] browsers;
     private String url;
-    private Step[] steps;
-    private String closeBrowser;
+    private List<TestStep> steps;
 
     String getTestCase() {
         return testCase;
-    }
-
-    Browser[] getBrowsers() {
-        return browsers;
     }
 
     String getUrl() {
         return url;
     }
 
-    Step[] getSteps() {
+    List<TestStep> getSteps() {
         return steps;
-    }
-
-    boolean getCloseBrowser() {
-        return !closeBrowser.isEmpty();
     }
 }

@@ -1,22 +1,10 @@
 package schema;
 
 import com.google.gson.Gson;
+import web.TestStep;
 import java.io.FileReader;
 import java.io.IOException;
-
-class Browser {
-    String name;
-    String description;
-    String options;
-}
-
-class Step {
-    String description = "";
-    String name = "";
-    String locatorType = "";
-    String locator = "";
-    String value = "";
-}
+import java.util.List;
 
 class JsonParser {
     private Test test;
@@ -30,20 +18,12 @@ class JsonParser {
         return test.getTestCase();
     }
 
-    Browser[] getBrowser() {
-        return test.getBrowsers();
-    }
-
     String getUrl() {
         return test.getUrl();
     }
 
-    Step[] getSteps() {
+    List<TestStep> getSteps() {
         return test.getSteps();
-    }
-
-    boolean closeBrowser() {
-        return test.getCloseBrowser();
     }
 
     JsonParser getTest() {

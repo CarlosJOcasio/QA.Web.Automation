@@ -1,4 +1,4 @@
-package Report;
+package report;
 
 public class Step {
     private String description = "";
@@ -18,7 +18,14 @@ public class Step {
         this.passed = passed;
     }
 
-    Step(String description, String name, String locatorType, String locator) {
+    public Step(String description, String name, String value) {
+        this(description, name);
+        this.description = description;
+        this.name = name;
+        this.value = value;
+    }
+
+    private Step(String description, String name, String locatorType, String locator) {
         this(description, name);
         this.description = description;
         this.name = name;

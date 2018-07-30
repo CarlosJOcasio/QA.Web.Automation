@@ -1,4 +1,4 @@
-package Web;
+package web;
 
 abstract class Extension extends WebPage {
 
