@@ -6,7 +6,7 @@ import org.junit.Test;
 import webTesting.Inspection;
 import java.io.IOException;
 
-public class ABQDevelopmentCenter extends Inspection {
+public class RSIOnlineTest extends Inspection {
     private final String path = "C:\\rsi\\github\\rsi.abq.qe.automation\\RSI.ABQ.QE.Automation\\src\\main\\java\\";
 
     @Test

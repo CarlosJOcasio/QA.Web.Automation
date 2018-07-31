@@ -11,6 +11,7 @@ public class HTLMReport {
     private final static StringBuffer body = new StringBuffer();
     private final static StringBuffer bottom = new StringBuffer();
 
+    //todo move to an external file
     private static void head() {
         head.append("<!DOCTYPE html><html><body>");
         head.append("<!DOCTYPE html>");
@@ -50,6 +51,7 @@ public class HTLMReport {
         head.append("<tbody>");
     }
 
+    //todo move to an external file
     private static void bottom() {
         bottom.append("</tbody>");
         bottom.append("</table>");
@@ -83,7 +85,7 @@ public class HTLMReport {
         head();
         bottom();
 
-        File file = new File("./Reports/report.html");
+        File file = new File("./Reports/report.html"); //todo move to a command line
         Files.deleteIfExists(file.toPath());
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         writer.write(head.append(body).append(bottom).toString());

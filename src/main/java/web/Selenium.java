@@ -31,6 +31,7 @@ abstract class Selenium {
         getWebDriver().get(step.value);
     }
 
+    //todo move paths to selenium.properties
     private String driversPath;
     String driversPath() {
         return driversPath = driversPath == null ? ClassLoader.getSystemResource("./bin/drivers").getFile() : driversPath;

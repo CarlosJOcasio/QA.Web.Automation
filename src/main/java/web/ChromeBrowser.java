@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ChromeBrowser extends Selenium implements IBrowser {
 
+    //todo move commands to external files
     public void headleass() {
         chromeOptions().addArguments("--headless");
         normal();

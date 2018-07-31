@@ -90,9 +90,9 @@ class JsonRunner {
         try {
 
             if (invokeMethod(webPageClassName, step.name, step) ||
-                    invokeMethod(chromeClassName, step.name, step) ||
                     invokeMethod(validationClassName, step.name, step) ||
-                    invokeMethod(webPageComponentClassName, step.name, step)) {
+                    invokeMethod(webPageComponentClassName, step.name, step) ||
+                    invokeMethod(chromeClassName, step.name, step)) {
 
                 Date end = new Date(System.currentTimeMillis());
                 HTLMReport.write(new report.Step("END TIME", "Test Case Ended", end.toString()));

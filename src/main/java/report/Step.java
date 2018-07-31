@@ -44,6 +44,7 @@ public class Step {
         this.passed = passed;
     }
 
+    //todo move to an external file.
     @Override
     public String toString() {
         StringBuilder html = new StringBuilder();

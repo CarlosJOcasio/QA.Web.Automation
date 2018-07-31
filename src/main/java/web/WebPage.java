@@ -11,10 +11,20 @@ public class WebPage extends Selenium {
         webElement.click();
     }
 
+    protected void clearText(TestStep testStep) {
+        WebElement webElement = wait.canClick(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
+        webElement.clear();
+    }
+
     protected void enterText(TestStep testStep) {
         WebElement webElement = wait.canClick(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
         webElement.clear();
         webElement.sendKeys(testStep.value);
+    }
+
+    protected String getText(TestStep testStep) {
+        WebElement webElement = wait.presenceOf(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
+        return webElement.getText();
     }
 
     protected void selectOption(TestStep testStep) {
@@ -23,8 +33,8 @@ public class WebPage extends Selenium {
         select.deselectByVisibleText(testStep.value);
     }
 
-    protected String getText(TestStep testStep) {
+    protected void sendKeys(TestStep testStep) {
         WebElement webElement = wait.presenceOf(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
-        return webElement.getText();
+        webElement.sendKeys(testStep.value);
     }
 }
