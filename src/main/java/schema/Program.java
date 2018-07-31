@@ -7,6 +7,7 @@ import utility.Property;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.*;
+import java.util.stream.Stream;
 
 public class Program {
     private final static String cmdParserRegEx = Property.getProperty("./configuration/selenium.properties","schema.program.command.line.parser.regex");
@@ -14,9 +15,15 @@ public class Program {
     private static String browsers = "chrome";
     private static String options = "fastLoad";
 
-    public static int main( String [] arguments ) throws IOException {
+    public static int main( String[] arguments ) throws IOException {
         try {
-            Arrays.stream(arguments).forEach(s -> { setArgument(s); });
+            Stream<String> args = Arrays.stream(arguments);
+            if(args.anyMatch(a -> a.equalsIgnoreCase("-help"))) {
+                help();
+                return 0;
+            }
+
+            args.forEach(s -> { setArgument(s); });
 
             JsonRunner runner = new JsonRunner(path, browsers, options);
             runner.start();

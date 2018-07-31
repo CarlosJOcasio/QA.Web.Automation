@@ -6,18 +6,35 @@ import org.openqa.selenium.WebElement;
 public class Validation extends Selenium {
     private final Wait wait = new Wait();
 
+    //todo move all messages to an external file.
     protected void compareEqual(TestStep testStep) {
         By element = this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator);
         WebElement webElement = wait.presenceOf(element);
-        wait.textToBe(element, testStep.value);
-        String currentText = webElement.getText();
-        boolean result = currentText.equals(testStep.value);
-        assert result : String.format("Invalid element '%s' text, current: '%s' expected '%s'.", element, currentText, testStep.value);
+        boolean result = wait.textToBe(element, testStep.value);
+        String currentText = result ? webElement.getText() : null;
+        assert currentText != null && currentText.equals(testStep.value) : String.format("Invalid element '%s' text, current: '%s' expected '%s'.", element, currentText, testStep.value);
     }
 
     protected void validateTitle(TestStep testStep) {
         String title = getWebDriver().getTitle();
-        boolean result = title.equals(testStep.value);
-        assert result : String.format("Invalid page title, current: '%s' expected '%s'.", title, testStep.value);
+        assert title.equals(testStep.value) : String.format("Invalid page title, current: '%s' expected '%s'.", title, testStep.value);
+    }
+
+    protected void validateIsDisplayed(TestStep testStep) {
+        By element = this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator);
+        WebElement webElement = wait.presenceOf(element);
+        assert webElement.isDisplayed() : String.format("Element '%s' is not displayed.", testStep.name);
+    }
+
+    protected void validateIsEnabled(TestStep testStep) {
+        By element = this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator);
+        WebElement webElement = wait.visibilityOf(element);
+        assert webElement.isDisplayed() : String.format("Element '%s' is not enabled.", testStep.name);
+    }
+
+    protected void validateIsSelected(TestStep testStep) {
+        By element = this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator);
+        WebElement webElement = wait.presenceOf(element);
+        assert webElement.isSelected() : String.format("Element '%s' is not selected.", testStep.name);
     }
 }
