@@ -22,15 +22,15 @@ public class WebPage extends Selenium {
         webElement.sendKeys(testStep.value);
     }
 
+    protected String getText(TestStep testStep) {
+        WebElement webElement = wait.presenceOf(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
+        return webElement.getText();
+    }
+
     protected void selectOption(TestStep testStep) {
         WebElement webElement = wait.canClick(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
         Select select = new Select(webElement);
         select.deselectByVisibleText(testStep.value);
-    }
-
-    protected String getText(TestStep testStep) {
-        WebElement webElement = wait.presenceOf(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator));
-        return webElement.getText();
     }
 
     protected void sendKeys(TestStep testStep) {

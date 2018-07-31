@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6f197ef0-1a84-4b3b-a65d-219e1a8c920a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/google/qe/schemas/google.site.rsi.search.test.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/schemas/google.site.rsi.search.test.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/inc/rsi/qe/schemas/rsi.site.address.test.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/schemas/rsi.site.address.test.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/report/HTLMReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/report/HTLMReport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/report/Step.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/report/Step.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/schema/JsonRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/schema/JsonRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/schema/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/schema/Program.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Validation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/Wait.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Wait.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/Selenium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/Selenium.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/web/WebPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/WebPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/rsi/ABQDevelopmentCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/rsi/RSIOnlineTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,7 +20,7 @@
     <session id="831206058">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.137" value="1" />
           <entry key="project.open.time.17" value="1" />
           <entry key="project.open.time.2" value="1" />
@@ -40,8 +35,8 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="116" />
-          <entry key="java" value="19790" />
+          <entry key="dummy" value="132" />
+          <entry key="java" value="19905" />
           <entry key="json" value="2538" />
           <entry key="properties" value="125" />
           <entry key="txt" value="706" />
@@ -50,9 +45,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="19790" />
+          <entry key="JAVA" value="19905" />
           <entry key="JSON" value="2538" />
-          <entry key="PLAIN_TEXT" value="822" />
+          <entry key="PLAIN_TEXT" value="838" />
           <entry key="Properties" value="125" />
           <entry key="XML" value="39" />
         </counts>
@@ -61,9 +56,9 @@
         <counts>
           <entry key="class" value="22" />
           <entry key="html" value="5" />
-          <entry key="java" value="430" />
+          <entry key="java" value="442" />
           <entry key="json" value="36" />
-          <entry key="properties" value="10" />
+          <entry key="properties" value="11" />
           <entry key="schema" value="1" />
           <entry key="txt" value="1" />
           <entry key="xml" value="1" />
@@ -73,10 +68,10 @@
         <counts>
           <entry key="CLASS" value="22" />
           <entry key="HTML" value="5" />
-          <entry key="JAVA" value="430" />
+          <entry key="JAVA" value="442" />
           <entry key="JSON" value="36" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Properties" value="10" />
+          <entry key="Properties" value="11" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -85,24 +80,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/Validation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+            <state relative-caret-position="136">
+              <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1285#1286#0" expanded="true" />
-                <element signature="e#1317#1318#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/schema/Option.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/Wait.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="272">
+              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,12 +104,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/schema/Program.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/WebPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+            <state relative-caret-position="544">
+              <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/WepPageComponent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1285#1286#0" expanded="true" />
+                <element signature="e#1317#1318#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -132,31 +148,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/schema/JsonParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/web/IBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/report/Step.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="46" column="36" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -173,8 +168,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/web/Selenium.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state relative-caret-position="204">
+              <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -183,13 +178,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/schema/Browser.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/web/TestStep.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -228,7 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Web/Browser.java" />
         <option value="$PROJECT_DIR$/src/main/java/Web/Extension.java" />
         <option value="$PROJECT_DIR$/src/main/java/Program.java" />
         <option value="$PROJECT_DIR$/src/test/java/rsi/RuralSourcingWebSiteTest.java" />
@@ -263,22 +254,23 @@
         <option value="$PROJECT_DIR$/src/main/java/schema/Step.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/Step.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/WepPageComponent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/web/Selenium.java" />
         <option value="$PROJECT_DIR$/src/main/java/schema/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/IBrowser.java" />
         <option value="$PROJECT_DIR$/src/test/java/webDriver/SanityTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/schema/JsonRunnerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/TestStep.java" />
-        <option value="$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java" />
         <option value="$PROJECT_DIR$/src/main/java/schema/JsonParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/schema/JsonRunner.java" />
-        <option value="$PROJECT_DIR$/src/main/java/web/WebPage.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/Wait.java" />
         <option value="$PROJECT_DIR$/src/main/java/web/Validation.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/google/qe/schemas/google.site.rsi.search.test.json" />
         <option value="$PROJECT_DIR$/src/main/java/report/HTLMReport.java" />
         <option value="$PROJECT_DIR$/src/main/java/report/Step.java" />
         <option value="$PROJECT_DIR$/src/main/java/schema/Program.java" />
+        <option value="$PROJECT_DIR$/src/test/java/rsi/RSIOnlineTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/web/Selenium.java" />
+        <option value="$PROJECT_DIR$/src/main/java/web/WebPage.java" />
       </list>
     </option>
   </component>
@@ -338,14 +330,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="report" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="schema" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -354,15 +338,51 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utility" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
               <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="rsi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RSI.ABQ.QE.Automation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="schema" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="selenium" type="b2602c69:ProjectViewProjectNode" />
@@ -413,23 +433,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ABQDevelopmentCenter.findRSILinkInGoogleSearch">
-    <configuration name="ABQDevelopmentCenter.findRSILinkInGoogleSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="selenium" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="rsi.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="rsi" />
-      <option name="MAIN_CLASS_NAME" value="rsi.ABQDevelopmentCenter" />
-      <option name="METHOD_NAME" value="findRSILinkInGoogleSearch" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.RSIOnlineTest.findRSILinkInGoogleSearch">
     <configuration name="JsonRunnerTest.isMethodFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="selenium" />
       <extension name="coverage">
@@ -457,6 +461,22 @@
       <option name="PACKAGE_NAME" value="schema" />
       <option name="MAIN_CLASS_NAME" value="schema.ProgramTest" />
       <option name="METHOD_NAME" value="commandLineTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RSIOnlineTest.findRSILinkInGoogleSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="selenium" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rsi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="rsi" />
+      <option name="MAIN_CLASS_NAME" value="rsi.RSIOnlineTest" />
+      <option name="METHOD_NAME" value="findRSILinkInGoogleSearch" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -494,14 +514,14 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.JsonRunnerTest.isMethodFound" />
-      <item itemvalue="JUnit.ABQDevelopmentCenter.findRSILinkInGoogleSearch" />
+      <item itemvalue="JUnit.RSIOnlineTest.findRSILinkInGoogleSearch" />
       <item itemvalue="JUnit.ProgramTest.commandLineTest" />
       <item itemvalue="JUnit.SanityTest" />
       <item itemvalue="JUnit.SanityTest.fastLoadChromeInspection" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ABQDevelopmentCenter.findRSILinkInGoogleSearch" />
+        <item itemvalue="JUnit.RSIOnlineTest.findRSILinkInGoogleSearch" />
         <item itemvalue="JUnit.JsonRunnerTest.isMethodFound" />
         <item itemvalue="JUnit.SanityTest" />
         <item itemvalue="JUnit.SanityTest.fastLoadChromeInspection" />
@@ -543,7 +563,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16577825" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -562,7 +581,7 @@
       <window_info anchor="bottom" id="Messages" order="9" weight="0.32917964" />
       <window_info active="true" anchor="bottom" id="Dependency Viewer" order="10" visible="true" weight="0.32952183" />
       <window_info anchor="bottom" id="Inspection Results" order="11" weight="0.115264796" />
-      <window_info active="true" anchor="bottom" id="Metrics" order="12" visible="true" weight="0.32917964" />
+      <window_info anchor="bottom" id="Metrics" order="12" visible="true" weight="0.32917964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -785,13 +804,6 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration/selenium.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="117" selection-start-line="1" selection-start-column="117" selection-end-line="1" selection-end-column="117" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/runners/model/FrameworkMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -810,6 +822,13 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#213#214#0" expanded="true" />
+            <element signature="e#264#265#0" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#339#340#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -855,13 +874,6 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/schema/ProgramTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -930,58 +942,6 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/WebPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/WepPageComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/Wait.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#544#545#0" expanded="true" />
-            <element signature="e#625#626#0" expanded="true" />
-            <element signature="e#529#530#0" expanded="true" />
-            <element signature="e#623#624#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-            <element signature="e#971#972#0" expanded="true" />
-            <element signature="e#1284#1285#0" expanded="true" />
-            <element signature="e#1357#1358#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/Validation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/TestStep.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/schema/rsi.default.selenium.schema.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -993,16 +953,6 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rsi/ABQDevelopmentCenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1045,15 +995,50 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/schema/Option.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="5" lean-forward="true" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        <state relative-caret-position="170">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-            <element signature="e#1317#1318#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/schema/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="44" column="81" selection-start-line="44" selection-start-column="81" selection-end-line="44" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/schema/ProgramTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/rsi/RSIOnlineTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configuration/selenium.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="117" selection-start-line="1" selection-start-column="117" selection-end-line="1" selection-end-column="117" />
         </state>
       </provider>
     </entry>
@@ -1080,28 +1065,64 @@ Pattern pattern = Pattern.compile(cmdParserRegEx);
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/web/Selenium.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="37" lean-forward="true" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+        <state relative-caret-position="204">
+          <caret line="33" column="34" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/schema/Option.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/TestStep.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="153">
+          <caret line="11" column="5" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/Validation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/schema/Program.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/Wait.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="25" lean-forward="true" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
+        <state relative-caret-position="272">
+          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/ChromeBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1285#1286#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/WepPageComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="50" lean-forward="true" selection-start-line="7" selection-start-column="50" selection-end-line="7" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/web/WebPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="5" lean-forward="true" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
