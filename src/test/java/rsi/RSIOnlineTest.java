@@ -12,7 +12,7 @@ public class RSIOnlineTest extends Inspection {
     @Test
     public void correctAlbuquerqueNewMexicoAddressUsingJsonSchema() throws IOException {
         int result = Program.main(new String[] {
-                "-file: "+path+"inc\\rsi\\qe\\rsi.site.address.test.json"
+                String.format("-file: %sinc\\rsi\\qe\\rsi.site.address.test.json", path)
         });
         Assert.assertEquals(result, 0);
     }
@@ -20,7 +20,7 @@ public class RSIOnlineTest extends Inspection {
     @Test
     public void findRSILinkInGoogleSearch() throws IOException {
         int result = Program.main(new String[] {
-                "-file: "+path+"com\\google\\qe\\schemas\\google.site.rsi.search.test.json'",
+                String.format("-file: %scom\\google\\qe\\schemas\\google.site.rsi.search.test.json'", path),
                 "-browser:chrome",
                 "-options:fastLoad"
         });
