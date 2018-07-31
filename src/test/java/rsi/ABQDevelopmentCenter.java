@@ -7,11 +7,12 @@ import webTesting.Inspection;
 import java.io.IOException;
 
 public class ABQDevelopmentCenter extends Inspection {
+    private final String path = "C:\\rsi\\github\\rsi.abq.qe.automation\\RSI.ABQ.QE.Automation\\src\\main\\java\\";
 
     @Test
     public void correctAlbuquerqueNewMexicoAddressUsingJsonSchema() throws IOException {
         int result = Program.main(new String[] {
-                "-file: C:\\Users\\CarlosJ\\Documents\\RSI\\Automation\\WebDriver\\RSI.ABQ.QE.Automation\\src\\main\\java\\inc\\rsi\\qe\\rsi.site.address.test.json"
+                "-file: "+path+"inc\\rsi\\qe\\rsi.site.address.test.json"
         });
         Assert.assertEquals(result, 0);
     }
@@ -19,7 +20,7 @@ public class ABQDevelopmentCenter extends Inspection {
     @Test
     public void findRSILinkInGoogleSearch() throws IOException {
         int result = Program.main(new String[] {
-                "-file:'C:\\Users\\CarlosJ\\Documents\\RSI\\Automation\\WebDriver\\RSI.ABQ.QE.Automation\\src\\main\\java\\com\\google\\qe\\schemas\\google.site.rsi.search.test.json'",
+                "-file: "+path+"com\\google\\qe\\schemas\\google.site.rsi.search.test.json'",
                 "-browser:chrome",
                 "-options:fastLoad"
         });

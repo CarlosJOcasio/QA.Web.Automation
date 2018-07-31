@@ -7,7 +7,7 @@
           <value>
             <SchemaInfo>
               <option name="name" value="rsi.default.selenium.schema.json" />
-              <option name="relativePathToSchema" value="src\main\java\Schema\rsi.default.selenium.schema.json" />
+              <option name="relativePathToSchema" value="src\main\java\schema\rsi.default.selenium.schema.json" />
               <option name="schemaVersion" value="JSON schema version 7" />
               <option name="patterns">
                 <list>

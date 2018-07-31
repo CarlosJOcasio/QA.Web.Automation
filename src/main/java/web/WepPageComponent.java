@@ -16,4 +16,5 @@ public class WepPageComponent extends Selenium {
     //Navigators
     //Search
     //Drag And Drop
+    //Login
 }
