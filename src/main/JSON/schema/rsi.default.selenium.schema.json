@@ -30,7 +30,6 @@
     "step": {
       "type": "object",
       "required": [
-        "description",
         "name"
       ],
       "properties": {
