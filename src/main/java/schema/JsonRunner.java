@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class JsonRunner {
     private Date start = null;
-    private static Browser browser = new Browser();
+    private final Browser browser = new Browser();
     private final Option option = new Option();
     private final String path;
     private final String webPageClassName = web.WebPage.class.getName();
@@ -43,7 +43,6 @@ public class JsonRunner {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         start = new Date(System.currentTimeMillis());
         HTLMReport.write(new report.Step(parser.getTestCase(), "Initialize Test Case", start.toString()));
         browser.setBrowser(browsers);
@@ -78,7 +77,7 @@ public class JsonRunner {
 
     public void end() {
         Date end = new Date(System.currentTimeMillis());
-        HTLMReport.write(new report.Step("END TIME", "Test Suite Ended", end.toString()));
+        HTLMReport.write(new report.Step("END TIME", "Test Case Ended", end.toString()));
 
         long diff = TimeUnit.DAYS.convert(Math.abs(end.getTime() - start.getTime()), TimeUnit.MILLISECONDS);
         HTLMReport.write(new report.Step("TOTAL TIME", "Test Suite Total", String.valueOf(diff))); //todo fix
@@ -89,14 +88,10 @@ public class JsonRunner {
 
         try {
 
-            if (invokeMethod(webPageClassName, step.name, step) ||
+            if(invokeMethod(webPageClassName, step.name, step) ||
                     invokeMethod(validationClassName, step.name, step) ||
                     invokeMethod(webPageComponentClassName, step.name, step) ||
-                    invokeMethod(chromeClassName, step.name, step)) {
-
-                Date end = new Date(System.currentTimeMillis());
-                HTLMReport.write(new report.Step("END TIME", "Test Case Ended", end.toString()));
-            }
+                    invokeMethod(chromeClassName, step.name, step) );
         } catch (Exception | AssertionError exc) {
             exception = new Exception(exc.getCause());
         } finally {
@@ -104,7 +99,6 @@ public class JsonRunner {
                     exception == null ? step.description : String.format("%s\nException: %s", step.description, exception.toString()),
                     step.name, step.locatorType, step.locator, step.value, exception == null));
         }
-
     }
 
     private void runSteps() {

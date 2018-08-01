@@ -13,13 +13,9 @@ class Browser {
     }
 
     private final List<Browser> browsers = new ArrayList<Browser>(){};
-
-    List<Browser> getBrowsers() {
-        return browsers;
-    }
+    List<Browser> getBrowsers() { return browsers; }
 
     private String browser;
-
     private String getBrowser() {
         return browser;
     }

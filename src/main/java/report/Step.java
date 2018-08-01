@@ -1,21 +1,12 @@
 package report;
 
 public class Step {
-    private String description = "";
-    private String name = "";
-    private String locatorType = "";
-    private String locator = "";
-    private String value = "";
+    private String description, name, locatorType, locator, value;
     private boolean passed = true;
 
     public Step(String description, String name) {
         this.description = description;
         this.name = name;
-    }
-
-    public Step(String description, String name, boolean passed) {
-        this(description, name);
-        this.passed = passed;
     }
 
     public Step(String description, String name, String value) {
@@ -25,37 +16,23 @@ public class Step {
         this.value = value;
     }
 
-    private Step(String description, String name, String locatorType, String locator) {
-        this(description, name);
-        this.description = description;
-        this.name = name;
+    public Step(String description, String name, String locatorType, String locator, String value, boolean passed) {
+        this(description, name, value);
         this.locatorType = locatorType;
         this.locator = locator;
-    }
-
-    public Step(String description, String name, String locatorType, String locator, boolean passed) {
-        this(description, name, locatorType, locator);
         this.passed = passed;
     }
 
-    public Step(String description, String name, String locatorType, String locator, String value, boolean passed) {
-        this(description, name, locatorType, locator);
-        this.value = value;
-        this.passed = passed;
-    }
-
-    //todo move to an external file.
     @Override
     public String toString() {
         StringBuilder html = new StringBuilder();
         html.append("<tr class=\"row100 body\">");
-        html.append(String.format("<td class=\"cell100 column1\">%s</td>", description));
-        html.append(String.format("<td class=\"cell100 column2\">%s</td>", name));
-        html.append(String.format("<td class=\"cell100 column3\">%s</td>", locatorType));
-        html.append(String.format("<td class=\"cell100 column4\">%s</td>", locator));
-        html.append(String.format("<td class=\"cell100 column5\">%s</td>", value));
-        html.append(this.passed ? "<td class=\"cell100 column6\"><font color='green'>Passed</font></td>" : "<td class=\"cell100 column6\"><font color='red'>Failed</font></td>");
-        html.append("</tr>");
+        html.append(String.format("<td class=\"cell100 column1\">%s</td>", description!=null && !description.isEmpty() ? description : ""));
+        html.append(String.format("<td class=\"cell100 column2\">%s</td>", name!=null && !name.isEmpty() ? name : ""));
+        html.append(String.format("<td class=\"cell100 column3\">%s</td>", locatorType!=null && !locatorType.isEmpty() ? locatorType : "" ));
+        html.append(String.format("<td class=\"cell100 column4\">%s</td>", locator!=null && !locator.isEmpty() ? locator : ""));
+        html.append(String.format("<td class=\"cell100 column5\">%s</td>", value!=null && !value.isEmpty() ? value : ""));
+        html.append(String.format("<td class=\"cell100 column6\"><font color='%s'>%s</font></td></tr>", this.passed ? "green" : "red", this.passed ? "Passed" : "Failed"));
 
         return html.toString();
     }
