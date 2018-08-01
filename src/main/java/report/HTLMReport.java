@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.util.List;
 
 public class HTLMReport {
+    public static String report = "./report";
     private final static StringBuffer head = new StringBuffer();
     private final static StringBuffer body = new StringBuffer();
     private final static StringBuffer end = new StringBuffer();
@@ -35,7 +36,7 @@ public class HTLMReport {
         head();
         end();
 
-        File file = new File("./Reports/report.html"); //todo move to a command line
+        File file = new File(String.format("%s/report.html", report));
         Files.deleteIfExists(file.toPath());
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         writer.write(head.append(body).append(end).toString());

@@ -61,8 +61,12 @@ public class Program {
             browsers = extractFilePath(argument);
         }
 
-        if(argument.contains("-browserOptions:")) {
+        if(argument.contains("-options:")) {
             options = extractFilePath(argument);
+        }
+
+        if(argument.contains("-report:")) {
+            HTLMReport.report = extractFilePath(argument);
         }
 
         if(path == null || path.isEmpty() || !FileUtils.fileExists(path) || !path.endsWith(".test.json")) {
