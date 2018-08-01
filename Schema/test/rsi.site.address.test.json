@@ -9,7 +9,7 @@
   "steps": [
     {
       "description": "Open RSI website.",
-      "name": "openUrl",
+      "name": "open",
       "value": "http://ruralsourcing.com"
     },
     {
@@ -37,6 +37,5 @@
       "locator": "#rk1pmx-magellan > li:nth-child(4) > a",
       "value": "723 Silver Ave SW\nAlbuquerque, NM 87102\n505.218.8500"
     }
-  ],
-  "closeBrowser": "Close the browser."
+  ]
 }
