@@ -124,7 +124,7 @@ public class JsonRunner {
         });
     }
 
-    static boolean invokeMethod(String className, String methodName, TestStep step) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
+    static boolean invokeMethod(String className, String methodName, TestStep step) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException {
         Class<?> clazz = Class.forName(className);
         List<Method> methods = Arrays.asList(clazz.getDeclaredMethods());
         Optional<Method> optionalMethod = methods.stream().filter(m -> m.getName().equalsIgnoreCase(methodName)).findFirst();
@@ -134,9 +134,9 @@ public class JsonRunner {
         if(method != null) {
             method.setAccessible(true);
             if(method.getParameterCount() > 0) {
-                method.invoke(clazz.newInstance(), step);
+                method.invoke(clazz.getDeclaredConstructor().newInstance(), step);
             } else {
-                method.invoke(clazz.newInstance());
+                method.invoke(clazz.getDeclaredConstructor());
             }
             result = true;
         }
