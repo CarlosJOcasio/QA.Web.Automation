@@ -3,9 +3,11 @@ package schema;
 import report.HTLMReport;
 import org.apache.maven.shared.utils.io.FileUtils;
 import report.Step;
+import utility.FileSystem;
 import utility.Property;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.regex.*;
 import java.util.stream.Stream;
 
@@ -40,10 +42,9 @@ public class Program {
     }
 
     private static void help() {
-        System.out.println("Command line arguments: ");
-        System.out.println("    -file: 'File path to run single test, file extension: *.test.json'");
-        System.out.println("    -browsers: 'Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'. Default to chrome.");
-        System.out.println("    -options: 'Application options. Accepted values:fastLoad,headless,normal'. Default to fastLoad");
+        Objects.requireNonNull(FileSystem.getFileList("./cmd/help")).forEach(l -> {
+            System.out.println(l);
+        });
     }
 
     private static String extractFilePath(String argument) {

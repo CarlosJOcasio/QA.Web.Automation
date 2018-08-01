@@ -1,0 +1,4 @@
+Command line arguments:\r\n
+\t\t-file: 'File path to run single test, file extension: *.test.json'
+\t\t-browsers: 'Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'. Default to 'chrome' browser
+\t\t-options: 'Application options. Accepted values:fastLoad,headless,normal'. Default to fastLoad

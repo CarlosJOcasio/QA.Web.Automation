@@ -109,7 +109,7 @@ class JsonRunner {
 
     private void runSteps() {
         try {
-            test().getSteps().stream().forEach(step -> {
+            test().getSteps().forEach(step -> {
                 runStep(step);
             });
         } finally {
@@ -118,7 +118,7 @@ class JsonRunner {
     }
 
     void runBrowser() {
-        browser.getBrowsers().stream().forEach(b -> {
+        browser.getBrowsers().forEach(b -> {
             setBrowser(b);
             runSteps();
         });
