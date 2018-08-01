@@ -9,10 +9,10 @@ import java.lang.reflect.Method;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-class JsonRunner {
+public class JsonRunner {
     private Date start = null;
+    private static Browser browser = new Browser();
     private final Option option = new Option();
-    private final Browser browser = new Browser();
     private final String path;
     private final String webPageClassName = web.WebPage.class.getName();
     private final String chromeClassName = web.ChromeBrowser.class.getName();
@@ -30,7 +30,7 @@ class JsonRunner {
         return new ChromeBrowser();
     }
 
-    JsonRunner(String path, String browsers, String options) {
+    public JsonRunner(String path, String browsers, String options) {
         this.path = path;
         this.browsers = browsers;
         this.options = options;
@@ -56,9 +56,9 @@ class JsonRunner {
         List<Option> options = option.getOptions();
 
         if (browser.toString().equalsIgnoreCase(chrome().toString())) {
-            if (options.stream().anyMatch(o -> o.toString().contains("fastLoad"))) {
+            if (options.stream().parallel().anyMatch(o -> o.toString().contains("fastLoad"))) {
                 chrome().fastLoad();
-            } else if (options.stream().anyMatch(o -> o.toString().contains("headless"))) {
+            } else if (options.stream().parallel().anyMatch(o -> o.toString().contains("headless"))) {
                 chrome().headleass();
             } else {
                 chrome().normal();
@@ -72,16 +72,16 @@ class JsonRunner {
         }
     }
 
-    void start() {
+    public void start() {
         test().getTestCase();
     }
 
-    void end() {
+    public void end() {
         Date end = new Date(System.currentTimeMillis());
         HTLMReport.write(new report.Step("END TIME", "Test Suite Ended", end.toString()));
 
         long diff = TimeUnit.DAYS.convert(Math.abs(end.getTime() - start.getTime()), TimeUnit.MILLISECONDS);
-        HTLMReport.write(new report.Step("TOTAL TIME", "Test Suite Total", String.valueOf(diff)));
+        HTLMReport.write(new report.Step("TOTAL TIME", "Test Suite Total", String.valueOf(diff))); //todo fix
     }
 
     private void runStep(TestStep step) {
@@ -108,19 +108,19 @@ class JsonRunner {
     }
 
     private void runSteps() {
-        try {
-            test().getSteps().forEach(step -> {
-                runStep(step);
-            });
-        } finally {
-            wrapUp(browser);
-        }
+        test().getSteps().forEach(step -> {
+            runStep(step);
+        });
     }
 
-    void runBrowser() {
+    public void runBrowser() {
         browser.getBrowsers().forEach(b -> {
-            setBrowser(b);
-            runSteps();
+            try {
+                setBrowser(b);
+                runSteps();
+            } finally {
+                wrapUp(b);
+            }
         });
     }
 
