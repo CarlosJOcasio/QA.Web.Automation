@@ -9,9 +9,7 @@ public class Property {
         Properties property = new Properties();
         try {
             property.load(ClassLoader.getSystemResourceAsStream(file));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException ignore) { }
 
         return property.getProperty(key);
     }

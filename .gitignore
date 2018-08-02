@@ -1,2 +1,4 @@
 #directories to ignore
 **/.idea
+**/.target
+selenium.iml

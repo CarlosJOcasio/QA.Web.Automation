@@ -2,10 +2,12 @@ package web;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import utility.Property;
+import java.util.Arrays;
 
 public class ChromeBrowser extends Selenium implements IBrowser {
 
-    //todo move commands to external files
+    @SuppressWarnings("SpellCheckingInspection")
     public void headleass() {
         chromeOptions().addArguments("--headless");
         normal();
@@ -26,12 +28,8 @@ public class ChromeBrowser extends Selenium implements IBrowser {
     }
 
     public void fastLoad() {
-        chromeOptions().addArguments("--disable-web-security");
-        chromeOptions().addArguments("--disable-extensions");
-        chromeOptions().addArguments("--disable-plugins");
-        chromeOptions().addArguments("--incognito");
-        chromeOptions().addArguments("--purge-memory-button");
-        chromeOptions().addArguments("--enable-sandbox");
+        Arrays.stream(Property.getProperty("./cmd/browser.properties", "cmd.chrome.browser.fast.load").split(";"))
+                .forEach(cmd -> chromeOptions().addArguments(cmd));
         normal();
     }
 

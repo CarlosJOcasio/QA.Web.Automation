@@ -21,9 +21,8 @@ abstract class Selenium {
     public void close() {
         try {
             getWebDriver().close();
+            getWebDriver().quit();
         } catch (Exception ignored) {
-        } finally {
-            setWebDriver(null);
         }
     }
 
