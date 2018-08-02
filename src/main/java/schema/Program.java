@@ -41,9 +41,9 @@ public class Program {
 
     private static void help() {
         System.out.println("Command line arguments: ");
-        System.out.println("    -file: 'File path to run single test, file extension: *.test.json'");
-        System.out.println("    -browsers: 'Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'. Default to chrome.");
-        System.out.println("    -options: 'Application options. Accepted values:fastLoad,headless,normal'. Default to fastLoad");
+        System.out.println("\t\t-file: 'File path to run single test, file extension: *.test.json'");
+        System.out.println("\t\t-browsers: 'Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'. Default to chrome.");
+        System.out.println("\t\t-options: 'Application options. Accepted values:fastLoad,headless,normal'. Default to fastLoad");
     }
 
     private static String extractFilePath(String argument) {
