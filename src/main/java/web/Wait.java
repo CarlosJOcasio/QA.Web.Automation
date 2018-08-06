@@ -51,4 +51,9 @@ class Wait extends Selenium {
     List<WebElement> visibilityOfNestedElements(By parent, By child) {
         return webDriverWait().until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(parent, child));
     }
+
+    public void stalenessOf(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(getWebDriver(), timeout);
+        wait.until(ExpectedConditions.stalenessOf(element));
+    }
 }

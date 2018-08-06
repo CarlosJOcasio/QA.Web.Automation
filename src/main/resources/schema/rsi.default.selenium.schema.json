@@ -5,13 +5,18 @@
   "type": "object",
   "required": [
     "testCase",
-    "browsers",
     "steps"
   ],
   "properties": {
     "testCase": {
       "description": "Test case description.",
       "type": "string"
+    },
+    "summary": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/summary"
+      }
     },
     "browsers": {
       "type": "array",
@@ -70,6 +75,16 @@
         "runType": {
           "type": "string",
           "description": "Browser type."
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": [ "description" ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "The summary of the the current test."
         }
       }
     }

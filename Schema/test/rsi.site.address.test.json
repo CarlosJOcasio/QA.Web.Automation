@@ -1,10 +1,8 @@
 {
   "testCase": "Test RSI ABQ Address.",
-  "browsers": [
-    {
-      "name": "chrome",
-      "runType": "headless"
-    }
+  "summary" : [
+    { "description" : "An navigate the RSI website to find Albuquerque, New Mexico address."},
+    { "description" : "Once the address is found, address should match the current address."}
   ],
   "steps": [
     {

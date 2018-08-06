@@ -19,7 +19,7 @@ public class Program {
 
     public static int main( String[] arguments ) throws IOException {
         try {
-            if(Arrays.stream(arguments).anyMatch(a -> a.equalsIgnoreCase("-help"))) {
+            if(arguments.length == 0 || Arrays.stream(arguments).anyMatch(a -> a.equalsIgnoreCase("-help"))) {
                 help();
                 return 0;
             }
@@ -43,16 +43,9 @@ public class Program {
     }
 
     private static void help() {
-<<<<<<< HEAD:src/main/java/schema/Program.java
-        System.out.println("Command line arguments: ");
-        System.out.println("\t\t-file: 'File path to run single test, file extension: *.test.json'");
-        System.out.println("\t\t-browsers: 'Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'. Default to chrome.");
-        System.out.println("\t\t-options: 'Application options. Accepted values:fastLoad,headless,normal'. Default to fastLoad");
-=======
         Objects.requireNonNull(FileSystem.getFileListFromResources("./cmd/help")).forEach(l -> {
             System.out.println(l);
         });
->>>>>>> 53f0ff8dacb3302686b3a21e4690f6decbe894c8:src/main/java/console/Program.java
     }
 
     private static String extractFilePath(String argument) {

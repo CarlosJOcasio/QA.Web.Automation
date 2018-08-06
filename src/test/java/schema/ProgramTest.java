@@ -22,4 +22,18 @@ public class ProgramTest {
 
         Assert.assertEquals(result,1);
     }
+
+    @Test
+    public void noArguments() throws IOException {
+        int result = Program.main(new String[] { });
+
+        Assert.assertEquals(result,0);
+    }
+
+    @Test
+    public void invalidArgument() throws IOException {
+        int result = Program.main(new String[] { "-fake: \"C:\\\"" });
+
+        Assert.assertEquals(result,0);
+    }
 }

@@ -1,10 +1,8 @@
 {
   "testCase": "Test RSI website Google search.",
-  "browsers": [
-    {
-      "name": "chrome",
-      "runType": "faster"
-    }
+  "summary" : [
+    { "description" : "Simulate an user searching for RSI's company name."},
+    { "description" : "The first link found should be RSI's website."}
   ],
   "steps": [
     {
