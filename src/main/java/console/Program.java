@@ -6,8 +6,11 @@ import report.Step;
 import schema.JsonRunner;
 import utility.FileSystem;
 import utility.Property;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.*;
 
@@ -16,6 +19,7 @@ public class Program {
     private static String browsers = Property.getProperty("./configuration/selenium.properties", "default.browser");
     private static String options = Property.getProperty("./configuration/selenium.properties", "default.options");
     private static String path = "";
+    private final static  List<File> paths = new ArrayList(){};
 
     public static int main( String[] arguments ) throws IOException {
         try {
@@ -26,12 +30,16 @@ public class Program {
 
             Arrays.stream(arguments).forEach(s -> { setArgument(s); });
 
-            inspectPath();
+            if(paths.size() > 0) {
+                paths.forEach( p -> {
+                    path = p.getPath();
+                    runner();
+                });
 
-            JsonRunner runner = new JsonRunner(path, browsers, options);
-            runner.start();
-            runner.runBrowser();
-            runner.end();
+            } else {
+                runner();
+            }
+
         } catch (Exception e) {
             HTLMReport.write(new Step("Unable to run steps.", e.getMessage()));
             return 1;
@@ -42,17 +50,20 @@ public class Program {
         return 0;
     }
 
+    private static void runner() {
+        inspectPath();
+
+        JsonRunner runner = new JsonRunner(path, browsers, options);
+        runner.start();
+        runner.runBrowser();
+        runner.end();
+
+    }
+
     private static void help() {
-<<<<<<< HEAD:src/main/java/schema/Program.java
-        System.out.println("Command line arguments: ");
-        System.out.println("\t\t-file: 'File path to run single test, file extension: *.test.json'");
-        System.out.println("\t\t-browsers: 'Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'. Default to chrome.");
-        System.out.println("\t\t-options: 'Application options. Accepted values:fastLoad,headless,normal'. Default to fastLoad");
-=======
         Objects.requireNonNull(FileSystem.getFileListFromResources("./cmd/help")).forEach(l -> {
             System.out.println(l);
         });
->>>>>>> 53f0ff8dacb3302686b3a21e4690f6decbe894c8:src/main/java/console/Program.java
     }
 
     private static String extractFilePath(String argument) {
@@ -66,6 +77,10 @@ public class Program {
             path = extractFilePath(argument);
         }
 
+        if(argument.contains("-report:")) {
+            HTLMReport.reports = extractFilePath(argument);
+        }
+
         if(argument.contains("-browsers:")) {
             browsers = extractFilePath(argument);
         }
@@ -74,8 +89,9 @@ public class Program {
             options = extractFilePath(argument);
         }
 
-        if(argument.contains("-report:")) {
-            HTLMReport.reports = extractFilePath(argument);
+        if(argument.contains("-directory:")) {
+            path = extractFilePath(argument);
+            paths.addAll( FileSystem.getFiles(path, ".test.json") );
         }
     }
 

@@ -23,6 +23,7 @@ public class Step {
         this.passed = passed;
     }
 
+    //todo simplify
     @Override
     public String toString() {
         StringBuilder html = new StringBuilder();
