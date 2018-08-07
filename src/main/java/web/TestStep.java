@@ -5,6 +5,7 @@ public class TestStep {
     public String name = "";
     public String locatorType = "";
     public String locator = "";
+    public String attribute = "";
     public String value = "";
 
     public TestStep(String value) {

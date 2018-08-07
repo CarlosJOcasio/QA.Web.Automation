@@ -50,6 +50,10 @@
           "type": "string",
           "description": "Elements' locator string, make sure it match the locator type."
         },
+        "attribute": {
+          "type": "string",
+          "description": "Attribute given by the user to search or wait."
+        },
         "value": {
           "type": "string",
           "description": "Value given by the user to verify and compare."
