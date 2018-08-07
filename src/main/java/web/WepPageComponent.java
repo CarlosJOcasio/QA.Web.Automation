@@ -6,9 +6,16 @@ public class WepPageComponent extends Selenium {
     private final Wait wait = new Wait();
 
     protected void clickNavigatorLink(TestStep testStep) {
-        WebElement navigatorButton = wait.canClick(this.locate(LocatorType.valueOf(testStep.locatorType.split("&")[0]), testStep.locator.split("&")[0]));
+        TestStep parent = testStep;
+        parent.locatorType = testStep.locatorType.split("&")[0];
+        parent.locator = testStep.locator.split("&")[0];
+        WebElement navigatorButton = wait.canClick(parent);
         navigatorButton.click();
-        WebElement navigatorLink = wait.canClick(this.locate(LocatorType.valueOf(testStep.locatorType.split("&")[1]), testStep.locator.split("&")[1]));
+
+        TestStep child = testStep;
+        child.locatorType = testStep.locatorType.split("&")[1];
+        child.locator = testStep.locator.split("&")[1];
+        WebElement navigatorLink = wait.canClick(child);
         navigatorLink.click();
     }
 
