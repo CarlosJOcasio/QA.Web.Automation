@@ -4,6 +4,7 @@ import org.apache.maven.shared.utils.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.Arrays;
 import java.util.List;
 
 public class FileSystem {
@@ -28,5 +29,11 @@ public class FileSystem {
 
     public static boolean exists(String path) {
         return Files.exists(Paths.get(path));
+    }
+
+    public static List<File> getFiles(String path, String extension) {
+        File file = new File(path);
+        File[] files = file.listFiles((d, name) -> name.endsWith(extension));
+        return Arrays.asList( files );
     }
 }

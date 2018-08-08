@@ -1,7 +1,6 @@
 package web;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,36 +19,44 @@ class Wait extends Selenium {
         return webDriverWait().until(ExpectedConditions.alertIsPresent());
     }
 
-    boolean alertIsPresent(By element, String attribute, String value) {
-        return webDriverWait().until(ExpectedConditions.attributeContains(element, attribute, value));
+    boolean attributeContains(TestStep testStep) {
+        return webDriverWait().until(ExpectedConditions.attributeContains(
+                this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator), testStep.attribute, testStep.value));
     }
 
-    WebElement canClick(By element) {
-        return webDriverWait().until(ExpectedConditions.elementToBeClickable(element));
+    WebElement canClick(TestStep testStep) {
+        return webDriverWait().until(
+                ExpectedConditions.elementToBeClickable(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator)));
     }
 
-    WebElement presenceOf(By element) {
-        return webDriverWait().until(ExpectedConditions.presenceOfElementLocated(element));
+    WebElement presenceOf(TestStep testStep) {
+        return webDriverWait().until(
+                ExpectedConditions.presenceOfElementLocated(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator)));
     }
 
     boolean titleIs(String title) {
         return webDriverWait().until(ExpectedConditions.titleIs(title));
     }
 
-    boolean textToBe(By element, String text) {
-        return webDriverWait().until(ExpectedConditions.textToBe(element, text));
+    boolean textToBe(TestStep testStep, String text) {
+        return webDriverWait().until(
+                ExpectedConditions.textToBe(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator),
+                        text));
     }
 
-    WebElement visibilityOf(By element) {
-        return webDriverWait().until(ExpectedConditions.visibilityOfElementLocated(element));
+    WebElement visibilityOf(TestStep testStep) {
+        return webDriverWait().until(
+                ExpectedConditions.visibilityOfElementLocated(this.locate(LocatorType.valueOf(testStep.locatorType), testStep.locator)));
     }
 
     boolean visibilityOf(String url) {
         return webDriverWait().until(ExpectedConditions.urlToBe(url));
     }
 
-    List<WebElement> visibilityOfNestedElements(By parent, By child) {
-        return webDriverWait().until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(parent, child));
+    List<WebElement> visibilityOfNestedElements(TestStep parent, TestStep child) {
+        return webDriverWait().until(ExpectedConditions.visibilityOfNestedElementsLocatedBy(
+                this.locate(LocatorType.valueOf(parent.locatorType), parent.locator),
+                this.locate(LocatorType.valueOf(child.locatorType), child.locator)));
     }
 
     public void stalenessOf(WebElement element) {

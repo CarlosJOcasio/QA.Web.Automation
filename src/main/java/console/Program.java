@@ -6,8 +6,11 @@ import report.Step;
 import schema.JsonRunner;
 import utility.FileSystem;
 import utility.Property;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.regex.*;
 
@@ -16,6 +19,7 @@ public class Program {
     private static String browsers = Property.getProperty("./configuration/selenium.properties", "default.browser");
     private static String options = Property.getProperty("./configuration/selenium.properties", "default.options");
     private static String path = "";
+    private final static  List<File> paths = new ArrayList(){};
 
     public static int main( String[] arguments ) throws IOException {
         try {
@@ -26,12 +30,16 @@ public class Program {
 
             Arrays.stream(arguments).forEach(s -> { setArgument(s); });
 
-            inspectPath();
+            if(paths.size() > 0) {
+                paths.forEach( p -> {
+                    path = p.getPath();
+                    runner();
+                });
 
-            JsonRunner runner = new JsonRunner(path, browsers, options);
-            runner.start();
-            runner.runBrowser();
-            runner.end();
+            } else {
+                runner();
+            }
+
         } catch (Exception e) {
             HTLMReport.write(new Step("Unable to run steps.", e.getMessage()));
             return 1;
@@ -40,6 +48,16 @@ public class Program {
         }
 
         return 0;
+    }
+
+    private static void runner() {
+        inspectPath();
+
+        JsonRunner runner = new JsonRunner(path, browsers, options);
+        runner.start();
+        runner.runBrowser();
+        runner.end();
+
     }
 
     private static void help() {
@@ -59,6 +77,10 @@ public class Program {
             path = extractFilePath(argument);
         }
 
+        if(argument.contains("-report:")) {
+            HTLMReport.reports = extractFilePath(argument);
+        }
+
         if(argument.contains("-browsers:")) {
             browsers = extractFilePath(argument);
         }
@@ -67,8 +89,9 @@ public class Program {
             options = extractFilePath(argument);
         }
 
-        if(argument.contains("-report:")) {
-            HTLMReport.reports = extractFilePath(argument);
+        if(argument.contains("-directory:")) {
+            path = extractFilePath(argument);
+            paths.addAll( FileSystem.getFiles(path, ".test.json") );
         }
     }
 
