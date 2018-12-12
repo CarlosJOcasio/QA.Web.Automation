@@ -1,0 +1,6 @@
+Command line arguments:
+    -file: File path to run single test, file extension: *.test.json
+    -browsers: Browsers to test. Accepted values:chrome,firefox,edge,chrome,android,iphone'
+    -options: Application options. Accepted values:fastLoad,headless,normal
+    -report: Path to the directory where the report will be created
+    -help

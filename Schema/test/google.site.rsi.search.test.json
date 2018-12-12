@@ -1,0 +1,38 @@
+{
+  "testCase": "Test RSI website Google search.",
+  "summary" : [
+    { "description" : "Simulate an user searching for RSI's company name."},
+    { "description" : "The first link found should be RSI's website."}
+  ],
+  "steps": [
+    {
+      "description": "Open Google website.",
+      "name": "open",
+      "value": "http://google.com"
+    },
+    {
+      "description": "Enter RSIs company name in google's main text box.",
+      "name": "enterText",
+      "locatorType": "id",
+      "locator": "lst-ib",
+      "value":"Rural Sourcing Inc."
+    },
+    {
+      "description": "Click on Google Search button.",
+      "name": "click",
+      "locatorType": "cssSelector",
+      "locator": "#sbtc > div.gstl_0.sbdd_a > div:nth-child(2) > div.sbdd_b > div > ul > li:nth-child(11) > div > span:nth-child(1) > span > input"
+    },
+    {
+      "description": "Click Rural Sourcing - America's leading provider of domestic outsourced IT link.",
+      "name": "click",
+      "locatorType": "linkText",
+      "locator": "Rural Sourcing - America's leading provider of domestic outsourced IT"
+    },
+    {
+      "description": "Validate Page Title Rural Sourcing - America's leading provider of domestic outsourced IT link.",
+      "name": "validateTitle",
+      "value": "Rural Sourcing - America’s leading provider of domestic outsourced IT"
+    }
+  ]
+}
